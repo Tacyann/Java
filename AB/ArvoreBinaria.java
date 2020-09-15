@@ -2,9 +2,9 @@ import java.io.Serializable;
 import java.util.Iterator;
 
 
-public class ArvoreBusca<E> implements Collection<E>, Serializable {
+public class ArvoreBinaria<E> implements Collection<E>, Serializable {
 
-    protected NoArvoreBin<E> raiz;
+    protected Node<E> raiz;
     private int numElementos;
 
     private class ArvoreIterator<E> implements Iterator<E>{
@@ -14,11 +14,11 @@ public class ArvoreBusca<E> implements Collection<E>, Serializable {
 
         public ArvoreIterator(){
             fila = new Fila<E>();
-            emOrdem((NoArvoreBin<E>) raiz);
+            emOrdem((Node<E>) raiz);
             corrente = fila.noInicio();
         }
 
-        public void emOrdem(NoArvoreBin<E> no){
+        public void emOrdem(Node<E> no){
             if (no != null){
                 emOrdem(no.getEsq());
                 fila.insert(no.getObj());
@@ -51,7 +51,7 @@ public class ArvoreBusca<E> implements Collection<E>, Serializable {
 
     }
 
-    public ArvoreBusca() {
+    public ArvoreBinaria() {
         numElementos = 0;
         raiz = null;
     }
@@ -66,10 +66,10 @@ public class ArvoreBusca<E> implements Collection<E>, Serializable {
         return (numElementos == 0);
     }
 
-	//adicionar
+	//adicionando um Nó.
     public boolean add(E objeto) {
         int direcao = -1;
-		NoArvoreBin<E> pai, p;
+		Node<E> pai, p;
 		p = raiz;
 		pai = null;
 		if (raiz != null) {
@@ -103,8 +103,8 @@ public class ArvoreBusca<E> implements Collection<E>, Serializable {
     }
 
 	//inserir
-    private NoArvoreBin<E> insert(E objeto, NoArvoreBin<E> noPai, int direcao) {
-		NoArvoreBin<E> novoNo = new NoArvoreBin<E>(objeto);
+    private Node<E> insert(E objeto, Node<E> noPai, int direcao) {
+		Node<E> novoNo = new Node<E>(objeto);
 		if (raiz == null) {
 			raiz = novoNo;
 			return novoNo;
@@ -115,9 +115,9 @@ public class ArvoreBusca<E> implements Collection<E>, Serializable {
 		return novoNo;
 	}
 
-
+    //Buscando um No.
     public boolean contains(E objeto) {
-        NoArvoreBin<E> no = raiz;
+        Node<E> no = raiz;
 		while (no != null) {
             int c = ((Comparable<E>)objeto).compareTo(no.getObj());
 			if (c == 0)
@@ -131,9 +131,9 @@ public class ArvoreBusca<E> implements Collection<E>, Serializable {
 		return false;
     }
 
-
+    //Removendo um No.
     public boolean remove(E objeto) {
-        NoArvoreBin<E> pai, p;
+        Node<E> pai, p;
 		int direcao = -1;
 		pai = null;
 		p = raiz;
@@ -154,7 +154,7 @@ public class ArvoreBusca<E> implements Collection<E>, Serializable {
 		if (p == null)
 			return false;
 		if ((p.getDir() != null) && (p.getEsq() != null)) {
-			NoArvoreBin<E> pTemp;
+			Node<E> pTemp;
 			pai = p;
 			pTemp = p.getEsq();
 			direcao = -1;
@@ -170,8 +170,9 @@ public class ArvoreBusca<E> implements Collection<E>, Serializable {
 		return true;
     }
 
-    private boolean delete(NoArvoreBin<E> pai, int direcao) {
-		NoArvoreBin<E> filho;
+    //Apagar
+    private boolean delete(Node<E> pai, int direcao) {
+		Node<E> filho;
 		if (pai == null) {
 			if ((raiz.getEsq() != null) && (raiz.getDir() != null))
 				return false;
@@ -196,7 +197,7 @@ public class ArvoreBusca<E> implements Collection<E>, Serializable {
 	}
 
     public E retrieve(E objeto) {
-        NoArvoreBin<E> no = raiz;
+        Node<E> no = raiz;
 		while (no != null) {
             int c = ((Comparable<E>)objeto).compareTo(no.getObj());
 			if (c == 0)
@@ -222,3 +223,4 @@ public class ArvoreBusca<E> implements Collection<E>, Serializable {
 
 
 }
+

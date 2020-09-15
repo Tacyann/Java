@@ -1,18 +1,18 @@
 import java.io.Serializable;
 
-public class NoArvoreBin<E> implements Serializable{
+public class Node<E> implements Serializable{
 	
 	private E obj;
-	private NoArvoreBin<E> esq;
-	private NoArvoreBin<E> dir;
+	private Node<E> esq;
+	private Node<E> dir;
 
-	public NoArvoreBin(E obj) {
+	public Node(E obj) {
 		this.obj = obj;
 		this.esq = null;
 		this.dir = null;
 	}
 
-	public NoArvoreBin(E obj, NoArvoreBin<E> esq, NoArvoreBin<E> dir) {
+	public Node(E obj, Node<E> esq, Node<E> dir) {
 		this.obj = obj;
 		this.esq = esq;
 		this.dir = dir;
@@ -22,11 +22,11 @@ public class NoArvoreBin<E> implements Serializable{
 		return obj;
 	}
 
-	public NoArvoreBin<E> getEsq() {
+	public Node<E> getEsq() {
 		return esq;
 	}
 
-	public NoArvoreBin<E> getDir() {
+	public Node<E> getDir() {
 		return dir;
 	}
 
@@ -38,22 +38,22 @@ public class NoArvoreBin<E> implements Serializable{
 		this.obj = obj;
 	}
 
-	public void setEsq(NoArvoreBin<E> esq) {
+	public void setEsq Node<E> esq) {
 		this.esq = esq;
 	}
 
-	public void setDir(NoArvoreBin<E> dir) {
+	public void setDir Node<E> dir) {
 		this.dir = dir;
 	}
 
-	public NoArvoreBin<E> getFilho(int direcao) {
+	public Node<E> getFilho(int direcao) {
 		if (direcao < 0)
 			return esq;
 		else
 			return dir;
 	}
 
-	public void setFilho(int direcao, NoArvoreBin<E> filho) {
+	public void setFilho(int direcao, Node<E> filho) {
 		if (direcao < 0)
 			esq = filho;
 		else
