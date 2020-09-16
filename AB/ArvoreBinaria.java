@@ -26,6 +26,7 @@ public class ArvoreBinaria<E> implements Collection<E>, Serializable {
             }
         }
 
+		//Verifica se existe um próximo elemento.
         public boolean hasNext() {
             if (size() == 0)
                 return false;
@@ -61,7 +62,7 @@ public class ArvoreBinaria<E> implements Collection<E>, Serializable {
         return numElementos;
     }
 
-	//esta cheia
+	//verifica se a arvore está vazia.
     public boolean isEmpty() {
         return (numElementos == 0);
     }
@@ -115,7 +116,7 @@ public class ArvoreBinaria<E> implements Collection<E>, Serializable {
 		return novoNo;
 	}
 
-    //Buscando um No.
+    //Busca.
     public boolean contains(E objeto) {
         Node<E> no = raiz;
 		while (no != null) {
@@ -214,7 +215,12 @@ public class ArvoreBinaria<E> implements Collection<E>, Serializable {
     public void clear() {
         raiz = null;
         numElementos = 0;
-    }
+	}
+	
+	// nivel = 2^h - 1
+	public altura(){
+
+	}
 
     public Iterator<E> iterator() {
         return new ArvoreIterator<E>();
