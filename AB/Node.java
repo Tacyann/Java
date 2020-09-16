@@ -1,63 +1,96 @@
-import java.io.Serializable;
+package AB;
+public class Node{
 
-public class Node<E> implements Serializable{
-	
-	private E obj;
-	private Node<E> esq;
-	private Node<E> dir;
+    //Criei um atributo denominado valor do tipo inteiro e dois apontadores Direita e Esquerda.
+    int valor;
+    Node NodeEsquerda;
+    Node NodeDireita;
+    int maisAlto;
 
-	public Node(E obj) {
-		this.obj = obj;
-		this.esq = null;
-		this.dir = null;
-	}
+    //Criando um Construtor que irá receber o atributo valor.
+    public Node(int valor) {
+        this.valor = valor;
+    }
 
-	public Node(E obj, Node<E> esq, Node<E> dir) {
-		this.obj = obj;
-		this.esq = esq;
-		this.dir = dir;
-	}
+    //-------ArvoreBinaria------------
 
-	public E getObj() {
-		return obj;
-	}
+    //Criando o apontador Raiz.
+    public static Node raiz;
 
-	public Node<E> getEsq() {
-		return esq;
-	}
+    //Esse método vai inserir o valor eu quero inserir na minha arvore( ou seja do usuário).
+    public static void inserir(int valor) {
+        inserir(raiz, valor);
+    }
 
-	public Node<E> getDir() {
-		return dir;
-	}
+    //Eu vou começar a procurar sempre pela Raiz e aprtir dela é que eu vou inserir os elementos da minha árvore.
+    public static void inserir(Node no, int valor) {
+        if (no == null) { //Verifica se a árvore está vazia.
+            System.out.println("Raiz " + valor);
+            raiz = new Node(valor);//Ou seja o meu Construtuor lá em cima.
+        } else {
+            if (valor < no.valor) {//Se o valor que estamos avaliando for menor que p nó, colocamos a esquerda.
+                if (no.NodeEsquerda != null) {
+                    inserir(no.NodeEsquerda, valor);
+                    //Inserindo com Recursividade.
+                } else {
+                    System.out.println("Inserindo " + valor + " a esquerda de " + no.valor);
+                    no.NodeEsquerda = new Node(valor);
+                }
 
-	public boolean ehFolha() {
-		return (esq == null) && (dir == null);
-	}
+            } else {
+                if (no.NodeDireita != null) { 
+                    //verificando se existe um filho criado.
+                    inserir(no.NodeDireita, valor);
+                } else {
+                    System.out.println("Inserindo " + valor + " a direita de " + no.valor);
+                    no.NodeDireita = new Node(valor);
+                }
+            }
+        }
+    }
 
-	public void setObj(E obj) {
-		this.obj = obj;
-	}
+    public static void preordem(Node no) {
+        if (no != null) {
+            System.out.print(no.valor + ", ");
+            preordem(no.NodeEsquerda);
+            preordem(no.NodeDireita);
 
-	public void setEsq Node<E> esq) {
-		this.esq = esq;
-	}
+        }
+    }
 
-	public void setDir Node<E> dir) {
-		this.dir = dir;
-	}
+    public static void posordem(Node no) {
+        if (no != null) {
 
-	public Node<E> getFilho(int direcao) {
-		if (direcao < 0)
-			return esq;
-		else
-			return dir;
-	}
+            posordem(no.NodeEsquerda);
+            posordem(no.NodeDireita);
+            System.out.print(no.valor + ", ");
 
-	public void setFilho(int direcao, Node<E> filho) {
-		if (direcao < 0)
-			esq = filho;
-		else
-			dir = filho;
-	}
+        }
+
+    }
+
+    public static void ordem(Node no) {
+        if (no != null) {
+            ordem(no.NodeEsquerda);
+            System.out.print(no.valor + ", ");
+            ordem(no.NodeDireita);
+
+        }
+    }
+
+    public boolean ehfolha() {
+        return (NodeEsquerda == null) && (NodeDireita == null);
+    }
+
+    
+    public static void main(String[] args) {
+
+        inserir(10);
+        inserir(4);
+        inserir(15);
+        inserir(5);
+        inserir(2);
+
+    }
 
 }
