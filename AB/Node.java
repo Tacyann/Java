@@ -74,7 +74,6 @@ public class Node{
             ordem(no.NodeEsquerda);
             System.out.print(no.valor + ", ");
             ordem(no.NodeDireita);
-
         }
     }
 
