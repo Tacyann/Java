@@ -1,18 +1,22 @@
-public static void main(String[] args) {
+package ArvoreBinaria;
 
-    ArvoreBinaria ab = new ArvoreBinaria(50); //Minha Raiz é 50.
+public class Main {
 
-    ab.inserirNo(new No(40), ab.getArvoreBinaria());
-    ab.inserirNo(new No(45), ab.getArvoreBinaria());
-    ab.inserirNo(new No(55), ab.getArvoreBinaria());
-    ab.inserirNo(new No(47), ab.getArvoreBinaria());
+    public static void main(String[] args) {
+        
+        ArvoreBinaria ab = new ArvoreBinaria(50); //Minha Raiz é 50.
 
-    ab.verificarGrau(45);
+        ab.adicionarNo(new No(30), ab.getArvoreBinaria());
+        ab.adicionarNo(new No(60), ab.getArvoreBinaria());
+        ab.adicionarNo(new No(25), ab.getArvoreBinaria());
+        ab.adicionarNo(new No(65), ab.getArvoreBinaria());
 
+        //ab.imprimirEmOrdem(ab.getArvoreBinaria());
+        //ab.imprimirPreOrdem(ab.getArvoreBinaria());
+        //ab.imprimirPosOrdem(ab.getArvoreBinaria());
 
-    //ab.imprimirEmOrdem(ab.getArvoreBinaria())
-    //ab.imprimirPreOrdem(ab.getArvoreBinaria())
-    //ab.imprimirPosOrdem(ab.getArvoreBinaria())
+         ab.verificargrau(30);
+    }
 
     
 }

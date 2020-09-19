@@ -8,7 +8,7 @@ public class No {
     public No direito;
 
     ///Meu Constutor
-    public No(int valor){
+    public No (int valor){
         this.valor = valor;
         this.direito = null;
         this.esquerdo = null;
@@ -16,10 +16,10 @@ public class No {
     }
 
      ///Meu Constutor
-     public No(int valor, No esquerdo, No direito){
+     public No (int valor, No esquerdo, No direito){
         this.valor = valor;
-        this.direito = esquerdo;
-        this.esquerdo = direito;
+        this.direito = direito;
+        this.esquerdo = esquerdo;
 
     }
     
