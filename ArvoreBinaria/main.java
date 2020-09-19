@@ -15,7 +15,7 @@ public class Main {
         //ab.imprimirPreOrdem(ab.getArvoreBinaria());
         //ab.imprimirPosOrdem(ab.getArvoreBinaria());
 
-         ab.verificargrau(30);
+         ab.verificargrau(60);
     }
 
     

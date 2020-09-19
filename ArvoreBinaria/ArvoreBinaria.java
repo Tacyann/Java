@@ -100,7 +100,7 @@ public class ArvoreBinaria {
         }else if((valor < no.valor)&&(no.esquerdo!= null)){
             return busca(no.esquerdo, valor);
             //vou pecorrer o lado esquerdo agora.
-        }else if((valor < no.valor)&&(no.direito!= null)){
+        }else if((valor > no.valor)&&(no.direito!= null)){
             return busca(no.direito, valor);
         }else{
             System.out.println("O Nó "+valor+" não foi encontrado.");
