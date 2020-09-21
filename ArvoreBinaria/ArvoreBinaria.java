@@ -123,6 +123,29 @@ public class ArvoreBinaria {
             System.out.println("O grau do Nó "+ valor +" é um.");
         }
     }
+    
+    
+
+    public void verificaAltura(int valor){
+        No noEncontrado = busca(valor);
+        System.out.println("O Altura do Nó "+ valor + " é : " + verificaAltura(noEncontrado));
+    }
+
+
+    //Sobrecarga, são metodos com o mesmo nome porém com parametros diferentes.
+    public int verificaAltura(No no){
+        if(no == null){
+            return -1; //Vai sempre me indicar que o nó não existe.
+        }else if(no.direito == null && no.esquerdo == null){//Se ele não tem nem filho direito e nem filho esquero então ele é Folha.
+            return 0;
+        }else if(no.direito == null){ // Eu vou incrementando a medida que eu vou encontrando Nós, na minha Busca.
+            return verificaAltura(no.esquerdo) + 1; //Aplicando a Recursividade ao utilizar o mesmo metodo.
+        }else if (no.esquerdo == null){
+            return verificaAltura(no.direito) + 1;
+        }else{
+            return Math.max(verificaAltura(no.esquerdo), verificaAltura(no.direito)) + 1;
+        }
+    }
 
     
     
