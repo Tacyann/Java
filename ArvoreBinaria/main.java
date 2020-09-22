@@ -4,20 +4,22 @@ public class Main {
 
     public static void main(String[] args) {
         
-        ArvoreBinaria ab = new ArvoreBinaria(40); //Minha Raiz é 50.
+        ArvoreBinaria ab = new ArvoreBinaria(100); 
 
-        ab.adicionarNo(new No(30), ab.getArvoreBinaria());
-        ab.adicionarNo(new No(70), ab.getArvoreBinaria());
-        ab.adicionarNo(new No(35), ab.getArvoreBinaria());
-        ab.adicionarNo(new No(80), ab.getArvoreBinaria());
-        ab.adicionarNo(new No(75), ab.getArvoreBinaria());
+        ab.adicionarNo(new No(50), ab.getArvoreBinaria());
+        ab.adicionarNo(new No(110), ab.getArvoreBinaria());
+        ab.adicionarNo(new No(25), ab.getArvoreBinaria());
+        ab.adicionarNo(new No(105), ab.getArvoreBinaria());
+        ab.adicionarNo(new No(120), ab.getArvoreBinaria());
+        ab.adicionarNo(new No(103), ab.getArvoreBinaria());
 
         //ab.imprimirEmOrdem(ab.getArvoreBinaria());
         //ab.imprimirPreOrdem(ab.getArvoreBinaria());
         //ab.imprimirPosOrdem(ab.getArvoreBinaria());
 
         //ab.verificargrau(30);
-         ab.verificaAltura(70);
+       //ab.verificaAltura(40);
+         ab.verificarProfundidade(103);
     }
 
     

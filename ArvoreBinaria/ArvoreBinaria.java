@@ -13,20 +13,35 @@ public class ArvoreBinaria {
         return raiz;
     }
 
+    //Metodo para guardar o valor do Pai.
+    public void getPai(int valor){
+        No no = busca(valor);
+        if(no.pai != null)
+        System.out.print("O pai do nó " + valor + "é: "+ no.pai.valor);
+        else
+        System.out.print("O Nó " + valor + "é a raiz da Árvore.");
+    }
+
     //Metodo Recursivo ou seja uma função dentro da outra(laço de Repetição).
     public void adicionarNo( No novoNo, No raiz){
         //Quando o nó, é maior que a raiz analisada.
         if(novoNo.valor > raiz.valor){
             //Se existir filho direito, não passa no if.
-            if(raiz.direito!= null)
+            if(raiz.direito!= null){
             adicionarNo(novoNo, raiz.direito);
-            else raiz.direito = novoNo;
+            }else{
+                raiz.direito = novoNo;
+                raiz.direito.pai = raiz; //Como ele vai pecorrer dinamicamente, eu vou dizer que o pai desse nó direito vai ser a Raiz.
+            } 
             //Se o nó é menor que a Raiz.
         } else {
             //Vai ser verdadeiro se existir um filho esquerdo.
-            if(raiz.esquerdo != null)
+            if(raiz.esquerdo != null){
             adicionarNo(novoNo, raiz.esquerdo);
-            else raiz.esquerdo = novoNo;
+            }else {
+                raiz.esquerdo = novoNo;
+                raiz.esquerdo.pai = raiz; //Como ele vai pecorrer dinamicamente, eu vou dizer que o pai desse nó esquerdo vai ser a Raiz.
+            }
         }
     }
 
@@ -88,6 +103,7 @@ public class ArvoreBinaria {
     }*/
 
 
+
     //Metodo Recursivo
     public No busca (No no, int valor){
         System.out.println("Focando no nó "+ no.valor);
@@ -107,6 +123,7 @@ public class ArvoreBinaria {
             return null; //não foi enocntrado nenhum nó.
         }
     }
+
 
     //Verificar o grau da Árvore
     public void verificargrau(int valor){
@@ -147,6 +164,17 @@ public class ArvoreBinaria {
         }
     }
 
-    
+    public void verificarProfundidade(int valor){
+        No noEncontrado = busca(valor); //Armezenar esse nó na váriavel noEncontrado
+        System.out.println("A Profundidade do Nó "+ valor + " é : " + verificarProfundidade(noEncontrado));
+    }
+
+    //Através do Metodo de Recursividade, ele vai somando o valor.
+    public int verificarProfundidade(No no){
+        if(no == null)
+        return -1;
+        else
+        return verificarProfundidade(no.pai) + 1;
+    }   
     
 }
