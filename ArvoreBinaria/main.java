@@ -18,9 +18,10 @@ public class Main {
         //ab.imprimirPosOrdem(ab.getArvoreBinaria());
 
         //ab.verificargrau(30);
-       //ab.verificaAltura(40);
-         ab.verificarProfundidade(103);
-    }
-
-    
+        //ab.verificaAltura(40);
+        //ab.verificarProfundidade(100);
+        //ab.verificarNivel(103);
+        ab.contarNo(110);
+        
+    }  
 }

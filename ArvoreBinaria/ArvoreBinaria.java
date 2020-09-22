@@ -175,6 +175,34 @@ public class ArvoreBinaria {
         return -1;
         else
         return verificarProfundidade(no.pai) + 1;
-    }   
+    } 
     
+    public void verificarNivel(int valor){
+        No noEncontrado = busca(valor); //Armezenar esse nó na váriavel noEncontrado
+        System.out.println("A Nível do Nó "+ valor + " é : " + verificarNivel(noEncontrado));
+    }
+
+    //Metodo Recursivo    
+    public int verificarNivel( No no){
+        if( no == null)
+        return -1;
+        else
+        return verificarNivel(no.pai) + 1;
+
+    }
+
+    public void contarNo(int valor){
+        No noEncontrado = busca(valor); //Armezenar esse nó na váriavel noEncontrado
+        System.out.println("A Número do Nós da Minha Árvore é : "+ contarNo(noEncontrado));
+    }
+
+    public int contarNo (No no){
+        int cont = 0;
+        if(no != null){
+            cont = cont + 1;
+            return cont;
+        }else
+        return cont;
+    }
+        
 }
