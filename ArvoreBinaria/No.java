@@ -24,5 +24,28 @@ public class No {
         this.esquerdo = esquerdo;
 
     }
+
+    public int getValor() {
+		return valor;
+	}
+	public void setValor(int valor) {
+		this.valor = valor;
+	}
+
+    public No getDireito() {
+		return direito;
+	}
+
+	public void setDireito(No direito) {
+		this.direito = direito;
+	}
+	public No getEsquerdo() {
+		return esquerdo;
+	}
+	public void setEsquerdo(No esquerdo) {
+		this.esquerdo = esquerdo;
+	}
+
+
     
 }

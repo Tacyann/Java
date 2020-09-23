@@ -12,6 +12,8 @@ public class Main {
         ab.adicionarNo(new No(105), ab.getArvoreBinaria());
         ab.adicionarNo(new No(120), ab.getArvoreBinaria());
         ab.adicionarNo(new No(103), ab.getArvoreBinaria());
+        
+        System.out.println(" Numero de nós: " + ab.qtd_no());
 
         //ab.imprimirEmOrdem(ab.getArvoreBinaria());
         //ab.imprimirPreOrdem(ab.getArvoreBinaria());
@@ -21,7 +23,7 @@ public class Main {
         //ab.verificaAltura(40);
         //ab.verificarProfundidade(100);
         //ab.verificarNivel(103);
-        ab.contarNo(110);
+        
         
     }  
 }

@@ -1,7 +1,15 @@
 package ArvoreBinaria;
 
+import java.util.Stack;
+
 public class ArvoreBinaria {
     No raiz;
+
+    //Meu Construtor
+    public ArvoreBinaria() {
+        raiz = null;
+   }
+
 
     //Meu Construtor
     public ArvoreBinaria(int valor){
@@ -45,33 +53,6 @@ public class ArvoreBinaria {
         }
     }
 
-    //Imprimir em Ordem.
-    public void imprimirEmOrdem(No raiz){
-        if(raiz == null) return; //Parada
-        imprimirEmOrdem(raiz.esquerdo);
-        System.out.print(raiz.valor + "\t");// imprimo um do lado do outro.
-        //System.out.print(raiz.valor + "\t");Desse jeito eu vou imprimir, um embaixo do outro.
-        imprimirEmOrdem(raiz.direito);
-
-    }
-
-    //Imprimir em Pre-Ordem.
-    public void imprimirPreOrdem(No raiz){
-        if(raiz == null) return;
-        System.out.print(raiz.valor + "\t");
-        imprimirPreOrdem(raiz.esquerdo);
-        imprimirPreOrdem(raiz.direito);
-    }
-
-    //Imprimir em Pos-Ordem.
-    public void imprimirPosOrdem(No raiz){
-        if(raiz == null) return;
-        imprimirPosOrdem(raiz.esquerdo);
-        imprimirPosOrdem(raiz.direito);
-        System.out.print(raiz.valor + "\t");
-    }
-
-
     /*Metodo de Busca para passando o valor a ser pesquisado e a raiz da árvore.
     public void busca (int valor){
         busca(this.raiz, valor);
@@ -101,8 +82,6 @@ public class ArvoreBinaria {
             System.out.println("O Nó"+valor+" não foi encontrado.");
         }
     }*/
-
-
 
     //Metodo Recursivo
     public No busca (No no, int valor){
@@ -176,6 +155,12 @@ public class ArvoreBinaria {
         else
         return verificarProfundidade(no.pai) + 1;
     } 
+
+    /*Tres condicoes:
+    1.Quando é folha, o nó removido não tem filhos.
+    2.Quando tem somente um filho(esquerdo ou direito)
+    3.Quando tem 2 filhos, dai variamos para Arvore Binaria de Busca e podemos Remover o nó.
+    */
     
     public void verificarNivel(int valor){
         No noEncontrado = busca(valor); //Armezenar esse nó na váriavel noEncontrado
@@ -191,18 +176,67 @@ public class ArvoreBinaria {
 
     }
 
-    public void contarNo(int valor){
-        No noEncontrado = busca(valor); //Armezenar esse nó na váriavel noEncontrado
-        System.out.println("A Número do Nós da Minha Árvore é : "+ contarNo(noEncontrado));
+    public double media() {
+		return Soma(this.raiz) / qtd_no();
+	}
+
+	private double Soma(No no) {
+		if (no == null)
+			return 0;
+		else {
+			int soma = 0;
+			soma += Soma(no.getEsquerdo());
+			soma += Soma(no.getDireito());
+			soma += (long) no.getValor();
+			return soma;
+		}
+    }
+    
+    public int qtd_no() {
+		No no = raiz;
+		int qtd = 0;
+		Stack<No> pilha = new Stack<>();
+		while (!pilha.isEmpty() || no != null) {
+			if (no != null) {
+			pilha.push(no);
+			no = no.getEsquerdo();
+			} else {
+			qtd++;
+			no = pilha.pop();
+			no = no.getDireito();
+			}
+		}
+		return qtd;
+	}
+
+    
+    //Imprimir em Ordem.
+    public void imprimirEmOrdem(No raiz){
+        if(raiz == null) return; //Parada
+        imprimirEmOrdem(raiz.esquerdo);
+        System.out.print(raiz.valor + "\t");// imprimo um do lado do outro.
+        //System.out.print(raiz.valor + "\t");Desse jeito eu vou imprimir, um embaixo do outro.
+        imprimirEmOrdem(raiz.direito);
+
     }
 
-    public int contarNo (No no){
-        int cont = 0;
-        if(no != null){
-            cont = cont + 1;
-            return cont;
-        }else
-        return cont;
+    //Imprimir em Pre-Ordem.
+    public void imprimirPreOrdem(No raiz){
+        if(raiz == null) return;
+        System.out.print(raiz.valor + "\t");
+        imprimirPreOrdem(raiz.esquerdo);
+        imprimirPreOrdem(raiz.direito);
     }
+
+    //Imprimir em Pos-Ordem.
+    public void imprimirPosOrdem(No raiz){
+        if(raiz == null) return;
+        imprimirPosOrdem(raiz.esquerdo);
+        imprimirPosOrdem(raiz.direito);
+        System.out.print(raiz.valor + "\t");
+    }
+
+
+
         
 }
