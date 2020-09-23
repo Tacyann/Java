@@ -4,23 +4,27 @@ public class Main {
 
     public static void main(String[] args) {
         
-        ArvoreBinaria ab = new ArvoreBinaria(100); 
+        ArvoreBinaria ab = new ArvoreBinaria(50); 
 
-        ab.adicionarNo(new No(50), ab.getArvoreBinaria());
-        ab.adicionarNo(new No(110), ab.getArvoreBinaria());
-        ab.adicionarNo(new No(25), ab.getArvoreBinaria());
-        ab.adicionarNo(new No(105), ab.getArvoreBinaria());
-        ab.adicionarNo(new No(120), ab.getArvoreBinaria());
-        ab.adicionarNo(new No(103), ab.getArvoreBinaria());
-        
-        System.out.println(" Numero de nós: " + ab.qtd_no());
+        ab.adicionarNo(new No(45), ab.getArvoreBinaria());
+        ab.adicionarNo(new No(55), ab.getArvoreBinaria());
+        ab.adicionarNo(new No(40), ab.getArvoreBinaria());
+        ab.adicionarNo(new No(48), ab.getArvoreBinaria());
+        ab.adicionarNo(new No(53), ab.getArvoreBinaria());
+        ab.adicionarNo(new No(60), ab.getArvoreBinaria());
+        ab.adicionarNo(new No(36), ab.getArvoreBinaria());
+        ab.adicionarNo(new No(49), ab.getArvoreBinaria());
 
-        //ab.imprimirEmOrdem(ab.getArvoreBinaria());
+        ab.remover(80);
+
+        //System.out.println(" Numero de nós: " + ab.qtd_no());
+
+        ab.imprimirEmOrdem(ab.getArvoreBinaria());
         //ab.imprimirPreOrdem(ab.getArvoreBinaria());
         //ab.imprimirPosOrdem(ab.getArvoreBinaria());
 
-        //ab.verificargrau(30);
-        //ab.verificaAltura(40);
+        //ab.verificargrau(50);
+        //ab.verificaAltura(105);
         //ab.verificarProfundidade(100);
         //ab.verificarNivel(103);
         
