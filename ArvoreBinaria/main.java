@@ -15,14 +15,15 @@ public class Main {
         ab.adicionarNo(new No(36), ab.getArvoreBinaria());
         ab.adicionarNo(new No(49), ab.getArvoreBinaria());
 
-        ab.remover(80);
+        //ab.remover(80);
 
-        //System.out.println(" Numero de nós: " + ab.qtd_no());
+        System.out.println(" Numero de nós: " + ab.qtd_no());
 
-        ab.imprimirEmOrdem(ab.getArvoreBinaria());
+        //ab.imprimirEmOrdem(ab.getArvoreBinaria());
         //ab.imprimirPreOrdem(ab.getArvoreBinaria());
         //ab.imprimirPosOrdem(ab.getArvoreBinaria());
 
+        //ab.busca(45);
         //ab.verificargrau(50);
         //ab.verificaAltura(105);
         //ab.verificarProfundidade(100);
