@@ -5,7 +5,7 @@ import java.util.Stack;
 public class ArvoreBinaria {
     No raiz;
 
-    // Meu Construtor
+    // Meu Construtor sem parametro e inicializei minha raiz como  vazia.
     public ArvoreBinaria() {
         raiz = null;
     }
@@ -259,18 +259,21 @@ public class ArvoreBinaria {
         }
     }
 
+    //Metodo que vai me retornar um inteiro.
     public int qtd_no() {
-        No no = raiz;
-        int qtd = 0;
-        Stack<No> pilha = new Stack<>();
+        No no = raiz; //Criar a variavel do tipo No passando a raiz.
+        int qtd = 0; // criar uma váriavel e inicializei com 0.
+        Stack<No> pilha = new Stack<>(); //Criei uma pilha do tipo No.
+        //Enquanto a pilha for != 0 ou o nó for != vazio
+        //Emptyretorna verdadeiro se a pilha tem elementos se não retorna falso.
         while (!pilha.isEmpty() || no != null) {
             if (no != null) {
-                pilha.push(no);
-                no = no.getEsquerdo();
+                pilha.push(no); //Utilizar o método push para colocar o elemnto na pilha.
+                no = no.getEsquerdo();//vai guardar no nó esquerdo.
             } else {
-                qtd++;
-                no = pilha.pop();
-                no = no.getDireito();
+                qtd++; //incrementar a quantidade.
+                no = pilha.pop(); // eu utilizar o metodo pop, para remover e retornar o elemento superior da pilha.
+                no = no.getDireito(); //e guarda-lo no nó direito.
             }
         }
         return qtd;
