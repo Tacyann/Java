@@ -23,11 +23,11 @@ public class Main {
         //ab.imprimirPreOrdem(ab.getArvoreBinaria());
         //ab.imprimirPosOrdem(ab.getArvoreBinaria());
 
-        //ab.busca(45);
-        //ab.verificargrau(50);
-        //ab.verificaAltura(105);
-        //ab.verificarProfundidade(100);
-        //ab.verificarNivel(103);
+        //ab.busca(80);
+        //ab.verificargrau(36);
+        //ab.verificaAltura(40);
+        //ab.verificarProfundidade(60);
+        //ab.verificarNivel(49);
         
         
     }  
