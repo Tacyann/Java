@@ -309,4 +309,14 @@ public class ArvoreBinaria {
         System.out.print(raiz.valor + "\t");
     }
 
+     // Reverter Ordem, mantendo a Raiz logo é só fazer o inverso da logica do metodo Ordem.
+     public void reverterOrdem(No raiz) {
+        if (raiz == null)
+        return;
+        reverterOrdem(raiz.direito);
+        System.out.print(raiz.valor + "\t");
+        reverterOrdem(raiz.esquerdo);
+        
+    }
+
 }

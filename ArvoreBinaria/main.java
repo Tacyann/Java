@@ -15,19 +15,21 @@ public class Main {
         ab.adicionarNo(new No(36), ab.getArvoreBinaria());
         ab.adicionarNo(new No(49), ab.getArvoreBinaria());
 
-        //ab.remover(80);
+        //.remover(53);
 
-        System.out.println(" Numero de nós: " + ab.qtd_no());
+        //System.out.println(" Numero de nós: " + ab.qtd_no());
 
         //ab.imprimirEmOrdem(ab.getArvoreBinaria());
         //ab.imprimirPreOrdem(ab.getArvoreBinaria());
         //ab.imprimirPosOrdem(ab.getArvoreBinaria());
+        ab.reverterOrdem(ab.getArvoreBinaria());
 
-        //ab.busca(80);
+        //ab.busca(60);
         //ab.verificargrau(36);
         //ab.verificaAltura(40);
         //ab.verificarProfundidade(60);
         //ab.verificarNivel(49);
+        
         
         
     }  
