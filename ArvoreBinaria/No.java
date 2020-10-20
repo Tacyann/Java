@@ -7,6 +7,7 @@ public class No {
     public No esquerdo;
     public No direito;
     public No pai; //Fundamental para que eu possa trabalhar com a profundidade da arvoré.
+ 
 
     ///Meu Constutor para parametrizar e iniciar as minhas váriaveís - Utilizei no metodo Profundidade.
     public No (int valor){
