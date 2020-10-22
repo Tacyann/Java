@@ -243,19 +243,21 @@ public class ArvoreBinaria {
 
     }
 
+    //media
     public double media() {
         return Soma(this.raiz) / qtd_no();
     }
 
+    //metodo para calcular a soma
     private double Soma(No no) {
-        if (no == null)
-            return 0;
+        if (no == null)//verificar se o nó é nulo
+            return 0; //caso seja vai me retornar vazio.
         else {
-            int soma = 0;
-            soma += Soma(no.getEsquerdo());
-            soma += Soma(no.getDireito());
-            soma += (long) no.getValor();
-            return soma;
+            int soma = 0; //inicializei a variavel soma com 0.
+            soma += Soma(no.getEsquerdo()); //vou incrementar o nó esquerdo.
+            soma += Soma(no.getDireito());  //vou incrementar o nó diretito.
+            soma += (long) no.getValor();   //juntar
+            return soma; //retornar o valor;
         }
     }
 

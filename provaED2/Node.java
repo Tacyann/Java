@@ -1,7 +1,7 @@
 
 public class Node
 {
-        public long valor;
+    public long valor;
 	public Node direita, esquerda, pai;
 
 	public Node(long valor) {

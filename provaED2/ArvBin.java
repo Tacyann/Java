@@ -3,9 +3,10 @@ import java.util.Stack;
 
 public class ArvBin {
     
-        private  Node root;
+         private  Node root;
          public int num;
 	
+	//Construtor, passando a raiz como vazia.	 
 	public ArvBin() {
 		 root = null;
 	}
@@ -63,7 +64,7 @@ public class ArvBin {
 
 	}
 
-	
+	//Imprimir
 	public void print() {
                 System.out.println("Pré Ordem: ");
 		preOrdem(this.root);
@@ -103,8 +104,6 @@ public class ArvBin {
 
 	
 	
-
-	
 	public boolean remove(int valor) {
 		Node pai = root;
 		Node node = root;
@@ -123,6 +122,7 @@ public class ArvBin {
 				return false;
 			}
 		}
+
 
 		if (grauNode(node ) == 0) {
 			if (node == root) {
@@ -164,6 +164,7 @@ public class ArvBin {
 		return true;
 	}
 
+	//metodo para guardar o proximo
 	private Node getSucessor(Node node) {
 		Node sucessor = node;
 		Node sucessorPai = node;
@@ -181,6 +182,7 @@ public class ArvBin {
 		return sucessor;
 	}
 
+	//verificar o Grau do No
 	private int grauNode(Node node) {
 		int cont = 0;
 		if (node == null) {
@@ -195,11 +197,12 @@ public class ArvBin {
 			return cont;
 		}
 	}
-	
+	//metofdo para me retornar a altura
 	public int height() {
 		return heightAux(this.root) + 1;
 	}
 
+	//metodo para buscar a altura
 	private int heightAux(Node node) {
 		if (node == null)
 			return -1;
@@ -213,26 +216,26 @@ public class ArvBin {
 		return max;
 	}
 
-	
+	//media
 	public double media() {
 		return Soma(this.root) / qtd_nodes();
 	}
 
+	//metodo para calcular a soma
 	private double Soma(Node node) {
-		if (node == null)
-			return 0;
+		if (node == null)//verificar se o nó é nulo
+			return 0;//caso seja vai me retornar vazio.
 		else {
-			int soma = 0;
-			soma += Soma(node.getEsquerda());
-			soma += Soma(node.getDireita());
-			soma += (long) node.getValor();
-			return soma;
+			int soma = 0; //inicializei a variavel soma com 0.
+			soma += Soma(node.getEsquerda()); //vou incrementar o nó esquerdo.
+			soma += Soma(node.getDireita()); //vou incrementar o nó diretito.
+			soma += (long) node.getValor(); //juntar
+			return soma; //retornar o valor;
 		}
 	}
 
 	
-	
-
+	//metodo de busca
         public Node busca(int valor) {
 		Node node = this.root;
 		while (!(node.getValor() == valor)) {
@@ -248,7 +251,8 @@ public class ArvBin {
 		}
 		return node;
 	}
-        
+		
+	//Contador
 	public boolean count(int valor) {
 		Node resultado = busca(valor);
 		if (resultado != null) {
@@ -258,59 +262,70 @@ public class ArvBin {
 		}
 	}
 
+	//Metodo me retorna o maior valor
 	public long max() {
 		return max(root).getValor();
 	}
 
+	//metodo para buscar o maior valor.
 	private Node max(Node node) {
-		if (node.getDireita() == null) {
-			return node;
+		if (node.getDireita() == null) { //verificando se no direito é igual a zero.
+			return node;//retornar o no.
 		} else {
-			return max(node.getDireita());
+			return max(node.getDireita()); //que o meu no dá direita vai ser o maior.
 		}
 	}
 
-	
+	//Metodo me retorna o menor valor
 	public long small() {
 		return small(this.root).getValor();
 	}
 
+
+	//metodo para buscar o menor valor.
 	private Node small (Node node) {
-		if (node.getEsquerda() == null) {
-			return node;
+		if (node.getEsquerda() == null) {//verificando se no esquerdo é igual a zero.
+			return node; //retornar o no.
 		} else {
-			return small(node.getEsquerda());
+			return small(node.getEsquerda()); //que o meu no dá esquerda vai ser o menor.
 		}
 	}
 
+		//Metodo que vai me retornar um inteiro.
         public int qtd_nodes() {
-		Node node = root;
-		int qtd = 0;
-		Stack<Node> pilha = new Stack<>();
+		Node node = root; //Criar a variavel do tipo No passando a raiz.
+		int qtd = 0; // criar uma váriavel e inicializei com 0.
+		Stack<Node> pilha = new Stack<>(); //Criei uma pilha do tipo No.
+		 //Enquanto a pilha for != 0 ou o nó for != vazio
+        //Emptyretorna verdadeiro se a pilha tem elementos se não retorna falso.
 		while (!pilha.isEmpty() || node != null) {
-			if (node != null) {
-			pilha.push(node);
-			node = node.getEsquerda();
+			if (node != null) { //verifico se o no é diferente de vazio.
+			pilha.push(node);//Utilizar o método push para colocar o elemnto na pilha.
+			node = node.getEsquerda();//vai guardar no nó esquerdo.
 			} else {
-			qtd++;
-			node= pilha.pop();
-			node = node.getDireita();
+			qtd++;//incrementar a quantidade.
+			node= pilha.pop();// eu utilizar o metodo pop, para remover e retornar o elemento superior da pilha.
+			node = node.getDireita();//e guarda-lo no nó direito.
 			}
 		}
 		return qtd;
 	}
+		//metodo para me retornar a quantidade de folhas.
         public int qtd_leaves() {
 		return leaves(this.root);
 	}
 
+	//metodo para encontrar a quantidade de folhas.	
 	private int leaves(Node node) {
-		if (node == null)
-			return 0;
+		if (node == null) //verifico se o no é vazio.
+			return 0; //se for vai me retornar 0;
 		if (node.getEsquerda() == null && node.getDireita() == null)
 			return 1;
 		return leaves (node.getEsquerda()) + leaves(node.getDireita());
 	}
-       
+
+
 
 }
+
 
