@@ -1,9 +1,8 @@
 import java.util.Stack;
-
 public class ArvBin {
     
          private Node root;
-         public int num;
+		 public int num;
 	
 
 	    // Metodo para retornar minha Raiz.
@@ -75,8 +74,10 @@ public class ArvBin {
                     System.out.println("");
 		System.out.println("In-Ordem: ");
 		inOrdem(this.root);
-               System.out.println("");
-		
+			   System.out.println("");
+		System.out.println("Arvore-Invertida: ");
+		reverterOrdem(root);
+			System.out.println("");
 	}
 
             private void inOrdem(Node node) {
@@ -102,6 +103,16 @@ public class ArvBin {
 			System.out.print(node.getValor() + " ");
 		}
 	}
+
+		  // Reverter Ordem, mantendo a Raiz logo é só fazer o inverso da logica do metodo Ordem.
+		  public void reverterOrdem(Node root) {
+			if (root == null)
+			return;
+			reverterOrdem(root.direita);
+			System.out.print(root.valor + " ");
+			reverterOrdem(root.esquerda);
+			
+		}
 
 	public boolean remove(int valor) {
 		Node pai = root;
@@ -233,7 +244,29 @@ public class ArvBin {
 		}
 	}
 
-	
+
+		//metodo para calcular a somar nós Pares
+		public double SomaNumPar(Node node) {
+			if (node == null)//verificar se o nó é nulo
+			return 0;//caso seja vai me retornar vazio.
+		else {
+			int soma = 0; //inicializei a variavel soma com 0.
+			soma += SomaNumPar(node.getEsquerda()); //vou incrementar o nó esquerdo.
+			soma += SomaNumPar(node.getDireita()); //vou incrementar o nó diretito.
+			if (node.getValor() % 2 == 0){
+				soma += node.getValor();
+			 }
+			return soma; //retornar o valor;
+			}
+		}
+
+			//PAR
+		public double par() {
+		return SomaNumPar(this.root);
+		}
+
+
+
 	//metodo de busca
         public Node busca(int valor) {
 		Node node = this.root;
@@ -322,9 +355,8 @@ public class ArvBin {
 			return 1;
 		return leaves (node.getEsquerda()) + leaves(node.getDireita());
 	}
-	
-	
-	//metodo de compara��o de 2 arvores
+
+	//metodo de comparacao de 2 arvores
 	public boolean isSimilar(ArvBin segunda) {
 		return comparator(root, segunda.getRoot() );
 	}
@@ -332,6 +364,7 @@ public class ArvBin {
 	private boolean comparator(Node primeira, Node segunda) {
 		if (primeira == segunda)
 			return true;
+		//coloquei o || para o caso das arvores nao terem a mesa quantidade de elementos.	
 		if (primeira == null || segunda == null)
 			return false;
 		return ((primeira.getValor() == segunda.getValor())

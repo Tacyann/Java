@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         
-        ArvoreBinaria ab = new ArvoreBinaria(50); 
+        ArvoreBinaria ab = new ArvoreBinaria(50);	
 
         ab.adicionarNo(new No(45), ab.getArvoreBinaria());
         ab.adicionarNo(new No(55), ab.getArvoreBinaria());
@@ -14,21 +14,24 @@ public class Main {
         ab.adicionarNo(new No(60), ab.getArvoreBinaria());
         ab.adicionarNo(new No(36), ab.getArvoreBinaria());
         ab.adicionarNo(new No(49), ab.getArvoreBinaria());
+    
 
-        //.remover(53);
+        //ab.remover(53);
 
-        System.out.println(" Numero de nós: " + ab.qtd_no());
+        //System.out.println(" Numero de nós: " + ab.qtd_no());
+        
+        //ab.imprimirEmOrdem(ab.getArvoreBinaria());
+        //ab.imprimirPreOrdem(ab.getArvoreBinaria());
+        //ab.imprimirPosOrdem(ab.getArvoreBinaria());
+        //ab.reverterOrdem(ab.getArvoreBinaria());
 
-        ab.imprimirEmOrdem(ab.getArvoreBinaria());
-        ab.imprimirPreOrdem(ab.getArvoreBinaria());
-        ab.imprimirPosOrdem(ab.getArvoreBinaria());
-        ab.reverterOrdem(ab.getArvoreBinaria());
 
         ab.busca(60);
         ab.verificargrau(36);
         ab.verificaAltura(40);
         ab.verificarProfundidade(60);
         ab.verificarNivel(49);
+        
         
     }  
 }

@@ -9,7 +9,7 @@ public class Node
 	public long getValor() {
 		return valor;
 	}
-	public void setValor(long valor) {
+	public void setValor(int valor) {
 		this.valor = valor;
 	}
 
