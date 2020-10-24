@@ -15,7 +15,11 @@ public class principal {
         ab.adicionarNo(new No(49), ab.getArvoreBinaria());
     
 
-        //ab.remover(53);
+       //ab.remover(36);//remover uma folha.
+       //ab.remover(55);//quando tem dois filhos.
+       //ab.remover(48);//quando tem um filho.
+       //ab.remover(50);//excluir um no com mais de dois descendentes.
+       //ab.remover(50);//a raiz.
 
         //System.out.println(" Numero de nós: " + ab.qtd_no());
         
