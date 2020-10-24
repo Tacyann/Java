@@ -1,6 +1,5 @@
-package ArvoreBinaria;
 
-public class Main {
+public class principal {
 
     public static void main(String[] args) {
         
@@ -20,17 +19,17 @@ public class Main {
 
         //System.out.println(" Numero de nós: " + ab.qtd_no());
         
-        //ab.imprimirEmOrdem(ab.getArvoreBinaria());
+        ab.imprimirEmOrdem(ab.getArvoreBinaria());
         //ab.imprimirPreOrdem(ab.getArvoreBinaria());
         //ab.imprimirPosOrdem(ab.getArvoreBinaria());
         //ab.reverterOrdem(ab.getArvoreBinaria());
 
 
-        ab.busca(60);
-        ab.verificargrau(36);
-        ab.verificaAltura(40);
-        ab.verificarProfundidade(60);
-        ab.verificarNivel(49);
+        //ab.busca(60);
+        //ab.verificargrau(36);
+        //ab.verificaAltura(40);
+       // ab.verificarProfundidade(60);
+        //ab.verificarNivel(49);
         
         
     }  

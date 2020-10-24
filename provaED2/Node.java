@@ -1,12 +1,12 @@
 public class Node
 {
-    public long valor;
+    public int valor;
 	public Node direita, esquerda, pai;
 
-	public Node(long valor) {
+	public Node(int valor) {
 		this.valor = valor;
 	}
-	public long getValor() {
+	public int getValor() {
 		return valor;
 	}
 	public void setValor(int valor) {

@@ -114,65 +114,66 @@ public class ArvBin {
 			
 		}
 
-	public boolean remove(int valor) {
-		Node pai = root;
-		Node node = root;
-		boolean paiEsquerda = true;
-
-		while (node.getValor() != valor) {
-			pai = node;
-			if ((valor < node.getValor())) {
-				paiEsquerda = true;
-				node = node.getEsquerda();
-			} else {
-				paiEsquerda = false;
-				node = node.getDireita();
+		public boolean remove(int valor) {
+			Node pai = root;
+			Node node = root;
+			boolean paiEsquerda = true;
+	
+			while (node.getValor() != valor) {
+				pai = node;
+				if ((valor < node.getValor())) {
+					paiEsquerda = true;
+					node = node.getEsquerda();
+				} else {
+					paiEsquerda = false;
+					node = node.getDireita();
+				}
+				if ( node == null) {
+					return false;
+				}
 			}
-			if ( node == null) {
-				return false;
+	
+			if (grauNode(node ) == 0) {
+				if (node == root) {
+					root = null;
+				} else if (paiEsquerda) {
+					pai.setEsquerda(null);
+				} else {
+					pai.setDireita(null);
+				}
+			} else if (grauNode(node) == 1) {
+				if (node.getDireita() == null) {
+					if (node == root) {
+						root = node.getEsquerda();
+					} else if (paiEsquerda) {
+						pai.setEsquerda(node.getEsquerda());
+					} else {
+						pai.setDireita(node.getEsquerda());
+					}
+				} else if (node.getEsquerda() == null) {
+					if (node == root) {
+						root = node.getDireita();
+					} else if (paiEsquerda) {
+						pai.setEsquerda(node.getDireita());
+					} else {
+						pai.setDireita(node.getDireita());
+					}
+				}
+			} else if (grauNode(node) == 2) {
+				Node sucessor = getSucessor(node);
+				if (node == root) {
+					root = sucessor;
+				} else if (paiEsquerda) {
+					pai.setEsquerda(sucessor);
+				} else {
+					pai.setDireita(sucessor);
+				}
+				sucessor.setEsquerda(node.getEsquerda());
 			}
+			return true;
 		}
 
 
-		if (grauNode(node ) == 0) {
-			if (node == root) {
-				root = null;
-			} else if (paiEsquerda) {
-				pai.setEsquerda(null);
-			} else {
-				pai.setDireita(null);
-			}
-		} else if (grauNode(node) == 1) {
-			if (node.getDireita() == null) {
-				if (node == root) {
-					root = node.getEsquerda();
-				} else if (paiEsquerda) {
-					pai.setEsquerda(node.getEsquerda());
-				} else {
-					pai.setDireita(node.getEsquerda());
-				}
-			} else if (node.getEsquerda() == null) {
-				if (node == root) {
-					root = node.getDireita();
-				} else if (paiEsquerda) {
-					pai.setEsquerda(node.getDireita());
-				} else {
-					pai.setDireita(node.getDireita());
-				}
-			}
-		} else if (grauNode(node) == 2) {
-			Node sucessor = getSucessor(node);
-			if (node == root) {
-				root = sucessor;
-			} else if (paiEsquerda) {
-				pai.setEsquerda(sucessor);
-			} else {
-				pai.setDireita(sucessor);
-			}
-			sucessor.setEsquerda(node.getEsquerda());
-		}
-		return true;
-	}
 
 	//metodo para guardar o proximo
 	private Node getSucessor(Node node) {

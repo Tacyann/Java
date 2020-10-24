@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - principal",
+            "request": "launch",
+            "mainClass": "principal",
+            "projectName": "Java_4b69ef36"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "Java_4b69ef36"
+        },
+        {
+            "type": "java",
             "name": "Debug (Launch) - Current File",
             "request": "launch",
             "mainClass": "${file}"
@@ -15,7 +29,7 @@
             "name": "Debug (Launch)-ProvaED2<Java_4b69ef36>",
             "request": "launch",
             "mainClass": "ProvaED2",
-            "projectName": "Java_4b69ef36",
+            "projectName": "Java_4b69ef36"
         }
     ]
 }

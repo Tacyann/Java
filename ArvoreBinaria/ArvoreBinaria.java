@@ -1,5 +1,3 @@
-package ArvoreBinaria;
-
 import java.util.Stack;
 
 public class ArvoreBinaria {
