@@ -1,15 +1,16 @@
-
 import java.util.Stack;
 
 public class ArvBin {
     
-         private  Node root;
+         private Node root;
          public int num;
 	
-	//Construtor, passando a raiz como vazia.	 
-	public ArvBin() {
-		 root = null;
-	}
+
+	    // Metodo para retornar minha Raiz.
+		public Node getRoot() {
+			return root;
+		}
+
 
 	public void insert(int valor) {
 		Node newNode = new Node(valor);
@@ -102,8 +103,6 @@ public class ArvBin {
 		}
 	}
 
-	
-	
 	public boolean remove(int valor) {
 		Node pai = root;
 		Node node = root;
@@ -322,6 +321,22 @@ public class ArvBin {
 		if (node.getEsquerda() == null && node.getDireita() == null)
 			return 1;
 		return leaves (node.getEsquerda()) + leaves(node.getDireita());
+	}
+	
+	
+	//metodo de compara��o de 2 arvores
+	public boolean isSimilar(ArvBin segunda) {
+		return comparator(root, segunda.getRoot() );
+	}
+
+	private boolean comparator(Node primeira, Node segunda) {
+		if (primeira == segunda)
+			return true;
+		if (primeira == null || segunda == null)
+			return false;
+		return ((primeira.getValor() == segunda.getValor())
+				&& (comparator(primeira.getEsquerda(), segunda.getEsquerda()))
+				&& (comparator(primeira.getDireita(), segunda.getDireita())));
 	}
 
 

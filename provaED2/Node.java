@@ -1,4 +1,3 @@
-
 public class Node
 {
     public long valor;
@@ -10,7 +9,7 @@ public class Node
 	public long getValor() {
 		return valor;
 	}
-	public void setValor(int valor) {
+	public void setValor(long valor) {
 		this.valor = valor;
 	}
 
